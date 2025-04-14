@@ -1,6 +1,8 @@
 package com.ttknpdev.springbootjdbccrudrelationstableforreactandvite.entities;
+
 // many to one
 public class Student {
+
     private String sid;
     private String firstname;
     private String lastname;
@@ -95,5 +97,19 @@ public class Student {
 
     public void setDpmid(String dpmid) {
         this.dpmid = dpmid;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "sid='" + sid + '\'' +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", age=" + age +
+                ", year=" + year +
+                ", address='" + address + '\'' +
+                ", phone='" + phone + '\'' +
+                ", dpmid='" + dpmid + '\'' +
+                '}';
     }
 }

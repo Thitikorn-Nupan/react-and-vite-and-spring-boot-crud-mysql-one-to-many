@@ -1,6 +1,8 @@
 package com.ttknpdev.springbootjdbccrudrelationstableforreactandvite.entities;
+
 // one to many
 public class Department {
+
     private String dpmid;
     private String department;
 
