@@ -8,6 +8,7 @@
             <!--2025-02-25 18:59:48.425 [main] WARN  c.t.u.UnderstandLog4jNewVersionApplication.displayLogBack(21) - Hello World-->
             <!--<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36}.%M\(%line\) - %msg%n</pattern>-->
             <!-- color good for console but it's not in file -->
+
             <pattern>%d{dd-MM-yyyy HH:mm:ss.SSS} %highlight(%-5level) [%blue(%t)] %green(%logger{45}) %line : %msg%n%throwable</pattern>
         </encoder>
     </appender>
