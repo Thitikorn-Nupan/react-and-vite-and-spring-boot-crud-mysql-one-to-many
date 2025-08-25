@@ -9,7 +9,7 @@ export class Student {
     public address: string;
     public phone: string;
     public dpmid: string;
-    private _departmentObj: Department;
+    private readonly _departmentObj: Department;
 
     constructor(sid: string, firstname: string, lastname: string, age: number, year: number, address: string, phone: string, dpmid : string,department: Department) {
         this.sid = sid;
@@ -26,6 +26,4 @@ export class Student {
     get department(): Department {
         return this._departmentObj;
     }
-
-
 }

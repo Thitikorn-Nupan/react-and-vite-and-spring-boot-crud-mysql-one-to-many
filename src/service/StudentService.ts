@@ -1,31 +1,38 @@
 import axios, { AxiosResponse} from 'axios';
 import {Student} from "../entities/student.ts";
 
-const BASE_URL = [
-    "http://localhost:8080/api/students",
-    "http://localhost:8080/api/student"
-];
 
 export class StudentService {
 
-    getAllStudentsJoinDepartments = async () : Promise<AxiosResponse> => {
+    private readonly BASE_URL = "http://localhost:8085/api";
+
+    public getAllStudentsOnlyPk = async () : Promise<AxiosResponse> => {
         // defaul axios will return object
-        return await axios.get(BASE_URL[0]);
+        return await axios.get(this.BASE_URL+"/students/pk");
     }
 
-    getStudent = async (sid : string) : Promise<AxiosResponse> => {
+    public getAllStudentsJoinDepartments = async () : Promise<AxiosResponse> => {
         // defaul axios will return object
-        return await axios.get(BASE_URL[1]+"?sid="+sid);
+        return await axios.get(this.BASE_URL+"/students");
     }
 
-    editStudent = async (student : Student,sid : string) : Promise<AxiosResponse> => {
+    public getStudent = async (sid : string) : Promise<AxiosResponse> => {
         // defaul axios will return object
-        return await axios.put(BASE_URL[1]+"/edit?sid="+sid,student);
+        return await axios.get(this.BASE_URL+"/student?sid="+sid);
     }
 
-    addStudent = async (student : Student) : Promise<AxiosResponse> => {
+    public editStudent = async (student : Student,sid : string) : Promise<AxiosResponse> => {
         // defaul axios will return object
-        return await axios.post(BASE_URL[1]+"/add",student);
+        return await axios.put(this.BASE_URL+"/student/edit?sid="+sid,student);
+    }
+
+    public addStudent = async (student : Student) : Promise<AxiosResponse> => {
+        // defaul axios will return object
+        return await axios.post(this.BASE_URL+"/student/add",student);
+    }
+    public deleteStudent = async (sid : string) : Promise<AxiosResponse> => {
+        // defaul axios will return object
+        return await axios.delete(this.BASE_URL+"/student/delete?sid="+sid);
     }
 }
 

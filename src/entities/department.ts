@@ -6,5 +6,4 @@ export class Department {
         this.dpmid = dpmid;
         this.department = department;
     }
-
 }
