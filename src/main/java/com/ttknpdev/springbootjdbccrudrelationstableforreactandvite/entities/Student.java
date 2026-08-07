@@ -6,8 +6,8 @@ public class Student {
     private String sid;
     private String firstname;
     private String lastname;
-    private int age;
-    private int year;
+    private Integer age;
+    private Integer year;
     private String address;
     private String phone;
     // for insert
@@ -15,7 +15,7 @@ public class Student {
     // try to join
     private Department department;
 
-    public Student(String sid, String firstname, String lastname, int age, int year, String address, String phone, String dpmid, Department department) {
+    public Student(String sid, String firstname, String lastname, Integer age, Integer year, String address, String phone, String dpmid, Department department) {
         this.sid = sid;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -51,19 +51,19 @@ public class Student {
         this.lastname = lastname;
     }
 
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 
-    public int getYear() {
+    public Integer getYear() {
         return year;
     }
 
-    public void setYear(int year) {
+    public void setYear(Integer year) {
         this.year = year;
     }
 

@@ -8,10 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowCallbackHandler;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
-import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Service;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -20,7 +17,7 @@ import java.util.List;
 @Service
 public class StudentService implements RowCallbackHandler, RowMapper {
 
-    private List<Student> students;
+    private final List<Student> students;
     private final JdbcTemplate jdbcTemplate;
     private final Logback logback;
 
@@ -83,22 +80,6 @@ public class StudentService implements RowCallbackHandler, RowMapper {
         return row > 0;
     }
 
-    private Object mapRowOnlyPk(ResultSet rs, int rowNum,List<Student> studentsOnlyPk) throws SQLException {
-        Student std = new Student(
-                rs.getString("sid"),
-                null,
-                null,
-                0,
-                0,
-                null,
-                null,
-                null,
-                null
-        );
-        studentsOnlyPk.add(std);
-        return studentsOnlyPk;
-    }
-
     @Override
     public void processRow(ResultSet rs) throws SQLException {
         Student student = new Student(
@@ -136,4 +117,21 @@ public class StudentService implements RowCallbackHandler, RowMapper {
                 )
         );
     }
+
+    private Object mapRowOnlyPk(ResultSet rs, int rowNum,List<Student> studentsOnlyPk) throws SQLException {
+        Student std = new Student(
+                rs.getString("sid"),
+                null,
+                null,
+                0,
+                0,
+                null,
+                null,
+                null,
+                null
+        );
+        studentsOnlyPk.add(std);
+        return studentsOnlyPk;
+    }
+
 }
