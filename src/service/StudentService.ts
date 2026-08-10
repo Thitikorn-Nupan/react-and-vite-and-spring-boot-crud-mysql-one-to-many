@@ -4,7 +4,7 @@ import {Student} from "../entities/student.ts";
 
 export class StudentService {
 
-    private readonly BASE_URL = "http://localhost:8085/api";
+    private readonly BASE_URL = import.meta.env.VITE_API_URL+"/api";
 
     public getAllStudentsOnlyPk = async () : Promise<AxiosResponse> => {
         // defaul axios will return object

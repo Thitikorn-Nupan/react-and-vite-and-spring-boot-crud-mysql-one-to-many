@@ -6,7 +6,7 @@ export class StudentFormEditClass2 extends Component {
         console.log(window.location.search) // ?sid=S1
     }
 
-    render() {
+    render() : JSX.Element {
         return (<h3 className={"alert alert-dark mt-3"}>Get param on URL by window.location.search... {window.location.search.slice(5)} </h3>);
     }
 }

@@ -10,7 +10,6 @@ export class Student {
     public phone: string;
     public dpmid: string;
     private readonly _departmentObj: Department;
-
     constructor(sid: string, firstname: string, lastname: string, age: number, year: number, address: string, phone: string, dpmid : string,department: Department) {
         this.sid = sid;
         this.firstname = firstname;
@@ -22,7 +21,6 @@ export class Student {
         this._departmentObj = department;
         this.dpmid = dpmid;
     }
-
     get department(): Department {
         return this._departmentObj;
     }

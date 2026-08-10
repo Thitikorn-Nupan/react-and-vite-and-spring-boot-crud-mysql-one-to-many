@@ -1,4 +1,4 @@
-import React from "react";
+import {Fragment} from "react";
 import {Component} from "react";
 import {Link, Outlet} from "react-router-dom";
 
@@ -25,7 +25,7 @@ export class Menubar extends Component {
                                     <ul className="dropdown-menu">
                                         {
                                           this.routerLinks.map((item, i) => // <Link> is used to set the URL and keep track of browsing history.
-                                              <React.Fragment key={item.to}>
+                                              <Fragment key={item.to}>
                                                   {
                                                       (i > 0)
                                                       ?
@@ -33,7 +33,7 @@ export class Menubar extends Component {
                                                       :
                                                       null
                                                   }
-                                              </React.Fragment>
+                                              </Fragment>
                                           )
                                         }
                                     </ul>

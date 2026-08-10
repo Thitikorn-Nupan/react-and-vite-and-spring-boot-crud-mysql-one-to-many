@@ -17,7 +17,6 @@ type State = {
     } | any
 }
 
-
 export class StudentFormEdit extends Component<Props, State> {
 
     private readonly studentService: StudentService
@@ -41,7 +40,7 @@ export class StudentFormEdit extends Component<Props, State> {
     }
 
     // async / await work same js
-    componentDidMount = async () => {
+    componentDidMount = async () : Promise<void> => {
         // window.location.search => ?sid=S13
         // const sid : string = window.location.search.slice(5)
         const sid = window.location.hash.slice(11)
@@ -52,9 +51,9 @@ export class StudentFormEdit extends Component<Props, State> {
 
     }
 
-    private handleSubmit =  async (event: FormEvent<HTMLFormElement>) => {
+    private handleSubmit =  async (event: FormEvent<HTMLFormElement>)  : Promise<void> => {
         event.preventDefault() // The preventDefault() method cancels the event if it is cancelable, meaning that the default action that belongs to the event will not occur.  // it works for block navigate to some path (like type button of html)
-        let studentEdit : Student = new Student(
+        const studentEdit : Student = new Student(
             "",
             this.state.values.firstname ? this.state.values.firstname : this.state.student?.firstname,
             this.state.values.lastname ? this.state.values.lastname : this.state.student?.lastname,
@@ -75,10 +74,10 @@ export class StudentFormEdit extends Component<Props, State> {
 
 
     // ** way to set state type object
-    private handleEachTagInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+    private handleEachTagInputChange = (event: ChangeEvent<HTMLInputElement>) : void => {
         // ** https://stackoverflow.com/questions/43638938/updating-an-object-with-setstate-in-react
         const nameOfTag = event.target.name;
-        let valueOfTag = event.target.value;
+        const valueOfTag = event.target.value;
         // way to set state values as object // ** try to understand
         this.setState({
             values : { // access key in state (object type)
@@ -143,7 +142,7 @@ export class StudentFormEdit extends Component<Props, State> {
         }
     */
 
-    render() {
+    render() : JSX.Element {
         return (
             <>
                 {(this.state.student)
